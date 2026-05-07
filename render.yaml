@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: bikezang-backend
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port 8000
+    envVars:
+      - key: WHATSAPP_BUSINESS_NUMBER
+        sync: false
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_KEY
+        sync: false
+      - key: OTP_EXPIRE_MINUTES
+        value: 10
